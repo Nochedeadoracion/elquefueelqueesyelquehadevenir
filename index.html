@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noche De Adoracion</title>
+  <meta name="description" content="Acompañanos en adoracion a esta noche de fe y milagros etc etc">
+  <meta name="author" content="Ignacio Damian Jofré Alonso">
+
+  <link rel="stylesheet" href="styles/hadevenir.css">
+  <link rel="stylesheet" href="styles/hadevenir-large.css">
+  <script src="script/hadevenir.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navigation">
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        ≡
+      </button>
+      <ul class="navigation-list">
+        <li><a href="#entradas">Entradas</a></li>
+        <li><a href="#info">Informacion</a></li>
+        <li><a href="#recaudacion">Recaudación</a></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </nav>
+    
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="images/hero-imagen-banner.jpg" alt="Lugar de Adoracion" class="hero-bg">
+      <div class="hero-content">
+        <h1>Noche de adoración</h1>
+        <p>El que fue, el que es y el que ha de venir</p>
+      </div>
+    </section>
+
+    <section class="features" id="info">
+      <div class="features-wrap">
+        <h2 class="features-title">Acompañanos</h2>
+    
+        <div class="features-grid">
+          <article class="feature-item">
+            <div class="feature-icon" aria-hidden="true">
+              <img src="images/date-calendar-svgrepo-com.svg" alt="cuando">
+            </div>
+            <h3>07 de Diciembre</h3>
+            <p>Para 800 personas</p>
+          </article>
+    
+          <article class="feature-item">
+            <div class="feature-icon" aria-hidden="true">
+              <img src="images/clock-svgrepo-com.svg" alt="hora">
+            </div>
+            <h3>7 PM</h3>
+            <p>Toda la noche</p>
+          </article>
+    
+          <article class="feature-item">
+            <div class="feature-icon" aria-hidden="true">
+              <img src="images/place-svgrepo-com.svg" alt="donde">
+            </div>
+            <h3>No me acuerdo je</h3>
+            <p>despues te mando un wsp</p>
+          </article>
+        </div>
+
+        <p class="features-description">
+          Venite que se va el Tuni a España y si va a ser la ultima... hagamola bieeeen. No podes faltar vos!
+        </p>
+        
+    </section>
+      
+    <section class="features" id="entradas">
+      <div class="feature-wrap">
+        <h2 class="features-title">Consegui tus entradas aqui</h2>
+        <section class="ticket-card">
+          <h2>Adquirir Entradas</h2>
+          <p class="ticket-price">Precio unitario: <strong>$5.000 ARS</strong></p>
+        
+          <form id="form-entradas">
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" placeholder="Juan Pérez" required>
+            </div>
+        
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" placeholder="ejemplo@email.com" required>
+            </div>
+        
+            <div class="form-group">
+              <label for="cantidad">Cantidad de entradas</label>
+              <input type="number" id="cantidad" min="1" max="10" value="1" required>
+            </div>
+        
+            <div class="total-box">
+              <span>Total a pagar:</span>
+              <strong id="total-monto">$5.000 ARS</strong>
+            </div>
+        
+            <button type="submit" id="btn-pagar" class="btn-primary">
+              Ir a pagar con Mercado Pago
+            </button>
+          </form>
+        </section>
+      </div>
+    </section>
+
+  </main>
+  <footer>
+  
+  </footer>
+</body>
+
+</html>
