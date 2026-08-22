@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ⚠️ Misma URL que en hadevenir.js
-  const API_URL = 'PEGAR_ACA_LA_URL_DE_TU_APPS_SCRIPT';
+  const API_URL = 'https://script.google.com/macros/s/AKfycbxzy-wy1dxsw1nmVNszWPe-gJEUFg1bFVnkiX7UHoddbjfwfNUH3nKKr9dNyKQBrRR6/exec';
 
   // Clave simple para que no cualquiera pueda validar/marcar entradas.
   // OJO: al ser una página pública en GitHub Pages, esto NO es seguridad
   // real (cualquiera con acceso al código fuente la puede ver). Solo
   // evita el uso accidental o casual. Tiene que ser IGUAL a STAFF_KEY
   // en Code.gs.
-  const STAFF_KEY = 'CAMBIAR_ESTA_CLAVE_DE_STAFF_PARA_LA_PUERTA';
+  const STAFF_KEY = 'SI_VA_A_SER_LA_ULTIMA_HAGAMOLA_BIEN';
 
   const resultado = document.getElementById('resultado');
   const contadorEl = document.getElementById('contador');
