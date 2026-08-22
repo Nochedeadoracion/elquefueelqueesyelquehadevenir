@@ -16,7 +16,7 @@ menuToggle.addEventListener("click", () => {
 document.addEventListener('DOMContentLoaded', () => {
   // ⚠️ Pegá acá la URL de tu Apps Script Web App (termina en /exec)
   const API_URL = 'PEGAR_ACA_LA_URL_DE_TU_APPS_SCRIPT';
-  const PRECIO_UNITARIO = 5000;
+  const PRECIO_UNITARIO = 4330;
 
   // El Link de pago simple de Mercado Pago solo admite un monto FIJO
   // (no calcula por cantidad). Por eso creamos un link distinto por
@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Los 6 links tienen que tener configurado el mismo "sitio de
   // redireccionamiento": la URL de confirmacion.html de este sitio.
   const LINKS_MERCADO_PAGO = {
-    1: 'https://mpago.la/PEGAR_LINK_1_ENTRADA',
-    2: 'https://mpago.la/PEGAR_LINK_2_ENTRADAS',
+    1: 'https://mpago.la/1yagK4K',
+    2: 'https://mpago.la/2THtrzm',
     3: 'https://mpago.la/PEGAR_LINK_3_ENTRADAS',
     4: 'https://mpago.la/PEGAR_LINK_4_ENTRADAS',
     5: 'https://mpago.la/PEGAR_LINK_5_ENTRADAS',
