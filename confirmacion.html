@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmación de compra - Noche De Adoracion</title>
+
+  <link rel="stylesheet" href="styles/hadevenir.css">
+  <link rel="stylesheet" href="styles/hadevenir-large.css">
+  <link rel="stylesheet" href="styles/entradas.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script/confirmacion.js" defer></script>
+</head>
+<body>
+  <main class="confirmacion-page">
+    <div class="confirmacion-wrap">
+      <div id="sin-datos" hidden>
+        <h1>No encontramos tu compra</h1>
+        <p>Puede que hayas llegado directo a esta página. Volvé al inicio para comprar tu entrada.</p>
+        <a class="btn-primary btn-link" href="index.html">Volver al inicio</a>
+      </div>
+
+      <div id="con-datos" hidden>
+        <h1>¡Reserva confirmada!</h1>
+        <p id="resumen-compra"></p>
+
+        <p class="aviso-pago">
+          Para asegurar tu lugar, completá el pago con Mercado Pago. Guardá o hacé
+          captura de tus QR: son tu entrada el día del evento.
+        </p>
+
+        <a id="btn-mercado-pago" class="btn-primary btn-link" href="#" target="_blank" rel="noopener">
+          Pagar con Mercado Pago
+        </a>
+
+        <div id="lista-entradas" class="lista-entradas"></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

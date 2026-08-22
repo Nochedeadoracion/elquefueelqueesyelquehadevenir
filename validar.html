@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validar entradas - Noche De Adoracion</title>
+
+  <link rel="stylesheet" href="styles/hadevenir.css">
+  <link rel="stylesheet" href="styles/entradas.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+  <script src="script/validar.js" defer></script>
+</head>
+
+<body>
+  <main class="validar-page">
+    <div class="validar-wrap">
+      <h1>Control de entradas</h1>
+      <p class="validar-ayuda">Uso interno: apuntá la cámara al QR de cada entrada.</p>
+
+      <div id="reader"></div>
+
+      <div id="resultado" class="resultado-validacion" data-tipo="">
+        Esperando escaneo...
+      </div>
+
+      <div class="contador-validados">
+        Validadas en esta sesión: <strong id="contador">0</strong>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
