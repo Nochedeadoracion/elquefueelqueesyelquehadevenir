@@ -15,9 +15,22 @@ menuToggle.addEventListener("click", () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   // ⚠️ Pegá acá la URL de tu Apps Script Web App (termina en /exec)
-  const API_URL = 'https://script.google.com/macros/s/AKfycbxzy-wy1dxsw1nmVNszWPe-gJEUFg1bFVnkiX7UHoddbjfwfNUH3nKKr9dNyKQBrRR6/exec';
+  const API_URL = 'PEGAR_ACA_LA_URL_DE_TU_APPS_SCRIPT';
   const PRECIO_UNITARIO = 5000;
-  const LINK_MERCADO_PAGO = 'https://mpago.la/2THtrzm'; // Reemplazá con tu link real
+
+  // El Link de pago simple de Mercado Pago solo admite un monto FIJO
+  // (no calcula por cantidad). Por eso creamos un link distinto por
+  // cada cantidad de entradas, con el precio ya multiplicado.
+  // Los 6 links tienen que tener configurado el mismo "sitio de
+  // redireccionamiento": la URL de confirmacion.html de este sitio.
+  const LINKS_MERCADO_PAGO = {
+    1: 'https://mpago.la/PEGAR_LINK_1_ENTRADA',
+    2: 'https://mpago.la/PEGAR_LINK_2_ENTRADAS',
+    3: 'https://mpago.la/PEGAR_LINK_3_ENTRADAS',
+    4: 'https://mpago.la/PEGAR_LINK_4_ENTRADAS',
+    5: 'https://mpago.la/PEGAR_LINK_5_ENTRADAS',
+    6: 'https://mpago.la/PEGAR_LINK_6_ENTRADAS'
+  };
 
   const inputCantidad = document.getElementById('cantidad');
   const totalMonto = document.getElementById('total-monto');
@@ -97,18 +110,30 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const linkPago = LINKS_MERCADO_PAGO[cantidad];
+
+      if (!linkPago) {
+        mostrarMensaje('No tenemos un link de pago para esa cantidad. Probá con un número menor.', 'error');
+        btnPagar.disabled = false;
+        btnPagar.textContent = textoOriginal;
+        return;
+      }
+
       // Guardamos los datos de esta compra para mostrarlos en confirmacion.html
+      // recién cuando la persona vuelva de Mercado Pago (no antes).
       sessionStorage.setItem('entrada_actual', JSON.stringify({
         nombre,
         email,
         cantidad,
         total: data.total,
         orderId: data.orderId,
-        entradas: data.entradas,
-        linkPago: LINK_MERCADO_PAGO
+        entradas: data.entradas
       }));
 
-      window.location.href = 'confirmacion.html';
+      // Redirige en la MISMA pestaña (no target="_blank"): así, cuando
+      // Mercado Pago redirija de vuelta a confirmacion.html, la
+      // sessionStorage sigue disponible en esa pestaña.
+      window.location.href = linkPago;
     } catch (err) {
       mostrarMensaje('Error de conexión. Probá de nuevo en un momento.', 'error');
       btnPagar.disabled = false;

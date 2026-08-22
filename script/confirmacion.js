@@ -15,9 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     `${datos.nombre}, reservaste ${datos.cantidad} entrada(s) por un total de ` +
     `$${Number(datos.total).toLocaleString('es-AR')} ARS.`;
 
-  const btnMP = document.getElementById('btn-mercado-pago');
-  btnMP.href = datos.linkPago;
-
   const contenedor = document.getElementById('lista-entradas');
 
   datos.entradas.forEach((entrada, index) => {
