@@ -1,0 +1,150 @@
+/* ============ Mensajes de estado del formulario ============ */
+
+.mensaje-estado {
+  margin-bottom: 18px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mensaje-estado[data-tipo="aviso"] {
+  background: #fff3cd;
+  color: #7a5c00;
+}
+
+.mensaje-estado[data-tipo="error"] {
+  background: #fde2e2;
+  color: #8a1f1f;
+}
+
+.mensaje-estado[data-tipo="agotado"] {
+  background: var(--dark);
+  color: var(--accent-light);
+}
+
+/* ============ Página de confirmación ============ */
+
+.confirmacion-page {
+  min-height: 100svh;
+  background: var(--secondary-color);
+  color: var(--font-color);
+  padding: 60px 0;
+}
+
+.confirmacion-wrap {
+  width: min(92%, 720px);
+  margin: 0 auto;
+}
+
+.confirmacion-page h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 16px;
+  text-transform: none;
+}
+
+.confirmacion-page p {
+  max-width: none;
+  font-size: 17px;
+  color: var(--font-color);
+  opacity: .9;
+  margin: 0 0 16px;
+}
+
+.aviso-pago {
+  background: rgba(255, 255, 255, .08);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.btn-link {
+  display: inline-block;
+  width: auto;
+  text-decoration: none;
+  text-align: center;
+  margin: 8px 0 28px;
+  padding: 14px 28px;
+}
+
+.lista-entradas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.entrada-item {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+}
+
+.entrada-item h3 {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.qr-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.btn-descargar {
+  width: 100%;
+}
+
+/* ============ Página de validación (staff) ============ */
+
+.validar-page {
+  min-height: 100svh;
+  background: var(--dark);
+  color: var(--font-color);
+  padding: 40px 0;
+}
+
+.validar-wrap {
+  width: min(92%, 480px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.validar-page h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.validar-ayuda {
+  color: rgba(255, 255, 255, .7);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+#reader {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.resultado-validacion {
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, .08);
+}
+
+.resultado-validacion[data-tipo="ok"] {
+  background: #1f7a3f;
+}
+
+.resultado-validacion[data-tipo="error"] {
+  background: #8a1f1f;
+}
+
+.contador-validados {
+  margin-top: 18px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, .7);
+}
