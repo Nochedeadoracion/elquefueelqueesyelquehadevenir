@@ -157,7 +157,7 @@ p {
   text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .feature-icon {
