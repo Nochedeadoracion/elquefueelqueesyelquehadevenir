@@ -212,7 +212,7 @@ p {
   background-color: var(--font-color);
   border-radius: 16px;
   padding: 32px;
-  margin: 0 7rem;
+  margin: 0 4rem;
 }
 
 .ticket-card h2 {
