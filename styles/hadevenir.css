@@ -19,12 +19,12 @@
 
 .hero {
   min-height: 100svh;
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-    background:
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background:
       linear-gradient(180deg,
         rgba(0, 0, 0, .06) 0%,
         rgba(0, 0, 0, .14) 45%,
@@ -42,15 +42,15 @@
 
 .hero-bg{
   position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Hace el mismo efecto que background-size: cover */
-    object-position: center;
-    /* Alinea al centro igual que center center */
-    z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Hace el mismo efecto que background-size: cover */
+  object-position: center;
+  /* Alinea al centro igual que center center */
+  z-index: 1;
 }
 
 h1{
@@ -93,7 +93,7 @@ p {
 .menu-toggle {
   border: none;
   background: transparent;
-  color: var(--secondary-color);
+  color: var(--font-color);
   font-size: 32px;
   line-height: 1;
   cursor: pointer;
@@ -138,7 +138,7 @@ p {
 
 .features-title {
   margin: 0 0 48px;
-  text-align: left;
+  text-align: center;
   font-size: 38px;
   line-height: 1;
   letter-spacing: -.04em;
@@ -201,7 +201,7 @@ p {
   letter-spacing: -.012em;
 }
 
-/* Sistema de tikets */
+/* SISTEMA DE ENTRADAS */
 
 .checkout-container {
   width: 100%;
@@ -209,15 +209,17 @@ p {
 }
 
 .ticket-card {
-  background-color: var(--primary-color);
+  background-color: var(--font-color);
   border-radius: 16px;
   padding: 32px;
+  margin: 0 7rem;
 }
 
 .ticket-card h2 {
   font-size: 28px;
   margin-bottom: 8px;
   letter-spacing: -0.02em;
+  color: var(--accent1-color); /* Es necesario este titulo? */
 }
 
 .ticket-price {
@@ -235,7 +237,7 @@ p {
 
 .form-group label {
   font-size: 14px;
-  color: #64748b; /* text muted */
+  color: var(--accent1-color); /* text muted */
 }
 
 .form-group input {
@@ -243,11 +245,13 @@ p {
   padding: 12px 16px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
-  background: #1a1a1a;
-  color: var(--font-color);
+  background: #f7f7f7; /* Gris ultra claro */
+  box-shadow: 0 0 0 transparent;
+  color:#64748b;
   font-size: 16px;
   outline: none;
   transition: border-color 0.2s ease;
+  
 }
 
 .form-group input:focus {
@@ -259,14 +263,12 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
   margin: 24px 0;
   font-size: 18px;
+  color: var(--accent1-color);
 }
 
 .total-box strong {
-  color: var(--accent2-color);
   font-size: 22px;
 }
 
@@ -290,4 +292,143 @@ p {
 
 .btn-primary:active {
   transform: translateY(0);
+}
+
+.ver-ubicacion {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 5px solid var(--accent2-color);
+  border-radius: 30px;
+  background-color: #f9f5ef;
+  color: var(--accent2-color);
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.ver-ubicacion:hover {
+  background-color: var(--accent2-color);
+  color: var(--font-color);
+}
+
+
+/* Intento numero dos con IA */
+
+/* ============ CONTENEDOR CON FONDO ============ */
+
+.seccion-con-fondo {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Imagen de fondo abarcando todo el contenedor */
+.night-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+/* Opcional: Capa oscura sutil sobre la imagen para mejorar la lectura de los textos */
+/* .seccion-con-fondo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;  
+} */
+
+/* Asegurar que las secciones queden por encima de la imagen y la capa oscura */
+.features-info,
+.features-entradas {
+  position: relative;
+  z-index: 3;
+  background: transparent;
+  /* Quitamos el background: #ffffff previo */
+  color: var(--font-color);
+  /* Cambiamos el texto a claro para contrastar */
+}
+
+.features-info {
+  padding: 85px 0 60px;
+}
+
+.features-entradas {
+  padding: 40px 0 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ajuste para que la tarjeta de entradas quede bien centrada */
+.checkout-container {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* CAMBIO EL FONT DEL FORMULARIO */
+
+/* Aplicar Work Sans únicamente al formulario de entradas */
+.ticket-card,
+.ticket-card input,
+.ticket-card button,
+.ticket-card label {
+  font-family: 'Work Sans', sans-serif;
+}
+
+/* ============ SECCIÓN 2: INFORMACIÓN DETALLADA ============ */
+
+.features-info {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.features-info h2 {
+  font-size: clamp(20px, 3vw, 32px);
+  color: var(--primary-color);
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.info-texto {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+.info-texto p {
+  margin-bottom: 16px;
+  max-width: 100%;
+}
+
+.info-texto ul {
+  list-style: none;
+  margin: 20px 0;
+  padding-left: 0;
+}
+
+.info-texto li {
+  margin-bottom: 12px;
+  padding-left: 8px;
+}
+
+.pasaje-biblico {
+  margin-top: 32px;
+  padding: 20px;
+  border-left: 4px solid var(--primary-color);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0 12px 12px 0;
 }

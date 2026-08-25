@@ -7,6 +7,11 @@
   <meta name="description" content="Acompañanos en adoracion a esta noche de fe y milagros etc etc">
   <meta name="author" content="Ignacio Damian Jofré Alonso">
 
+  <!-- fuente Work Sans desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles/hadevenir.css">
   <link rel="stylesheet" href="styles/hadevenir-large.css">
   <link rel="stylesheet" href="styles/entradas.css">
@@ -21,7 +26,7 @@
       <ul class="navigation-list">
         <li><a href="#entradas">Entradas</a></li>
         <li><a href="#info">Informacion</a></li>
-        <li><a href="#recaudacion">Recaudación</a></li>
+        <li><a href="#acercade">Acerca de</a></li>
         <li></li>
         <li></li>
       </ul>
@@ -65,9 +70,9 @@
             </div>
             <h3>Ríos de Vida <br> Florencio Varela</h3>
             <p>Calle 138 4630</p>
-            <div class="ver-ubicacion">
+            <div>
               <a href="https://www.google.com/maps/place/Fundaci%C3%B3n+Refugio+De+lo+Alto/@-34.8507726,-58.2319897,18z/data=!4m6!3m5!1s0x95a329bcd42c3e1b:0x514cdfa8db84f77c!8m2!3d-34.8506954!4d-58.232056!16s%2Fg%2F11fp1f635v?entry=ttu&g_ep=EgoyMDI1MTAyNy4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank" class="btn-ubicacion">
+                target="_blank" class="ver-ubicacion">
                 Ver en Mapa
               </a>
             </div>
@@ -79,48 +84,82 @@
         </p>
         
     </section>
-      
-    <section class="features" id="entradas">
-      <div class="feature-wrap">
-        <h2 class="features-title">Consegui tus entradas aqui</h2>
-        <section class="ticket-card">
-          <h2>Adquirir Entradas</h2>
-          <p class="ticket-price">Precio unitario sin impuestos: <strong>$4.000 ARS</strong></p>
-        
-          <p id="mensaje-estado" class="mensaje-estado" hidden></p>
 
-          <form id="form-entradas">
-            <div class="form-group">
-              <label for="nombre">Nombre completo</label>
-              <input type="text" id="nombre" placeholder="Edinson Cavani" required>
-            </div>
-        
-            <div class="form-group">
-              <label for="email">Correo electrónico</label>
-              <input type="email" id="email" placeholder="ejemplo@email.com" required>
-            </div>
-        
-            <div class="form-group">
-              <label for="cantidad">Cantidad de entradas</label>
-              <input type="number" id="cantidad" min="1" max="2" value="1" required>
-            </div>
-        
-            <div class="total-box">
-              <span>Total a pagar:</span>
-              <strong id="total-monto">$4.330 ARS</strong>
-            </div>
-        
-            <button type="submit" id="btn-pagar" class="btn-primary">
-              Reservar e ir a pagar
-            </button>
-          </form>
-        </section>
-      </div>
-    </section>
+    <!-- CONTENEDOR CON IMAGEN DE FONDO PARA INFO Y ENTRADAS -->
+    <div class="seccion-con-fondo">
+    <!-- Imagen de fondo a pantalla completa queva a oucpar dos sections -->
+      <img src="images/noche-girnaldas.png" alt="Fondo nocturno" class="night-background">
+
+      <!-- SECCIÓN INFORMACION -->
+      <section class="features-info" id="acercade">
+        <div class="features-wrap">
+          <h2>EL QUE FUE · EL QUE ES · EL QUE HA DE VENIR</h2>
+          <div class="info-texto">
+            <p>Una noche para encontrarnos con Jesús. Una noche de adoración, unidad y esperanza.</p>
+            <p>A lo largo de esta experiencia vamos a recorrer tres facetas de Jesús:</p>
+            <ul>
+              <li><strong>✝️ El que fue</strong> — aquel que vino, caminó entre nosotros, entregó su vida y venció la muerte.</li>
+              <li><strong>🔥 El que es</strong> — Jesús vivo y presente, transformando vidas y obrando hoy.</li>
+              <li><strong>👑 El que ha de venir</strong> — nuestro Rey, nuestra esperanza y aquel que volverá.</li>
+            </ul>
+            <p>Queremos que esta sea una noche en la que podamos conocerlo más, volver a Él y recordar que Su amor todavía nos
+              está llamando.</p>
+          
+            <blockquote class="pasaje-biblico">
+              <p><strong>DANIEL 7:14 RVR1960</strong></p>
+              <p>Y le fue dado dominio, gloria y reino, para que todos los pueblos, naciones y lenguas le sirvieran; su dominio es
+                dominio eterno, que nunca pasará, y su reino uno que no será destruido.</p>
+            </blockquote>
+          </div>
+       
+        </div>
+
+      </section>
+
+      <!-- SECCION ADQUIRIR ENTRADAS -->
+      <section class="features-entradas" id="entradas">
+        <div class="feature-wrap">
+          <h2 class="features-title">Consegui tus entradas aqui</h2>
+          <section class="ticket-card">
+            <!-- <h2>Adquirir Entradas</h2> -->
+            <p class="ticket-price">Precio unitario sin impuestos: <strong>$4.000 ARS</strong></p>
+          
+            <p id="mensaje-estado" class="mensaje-estado" hidden></p>
+  
+            <form id="form-entradas">
+              <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" placeholder="Edinson Cavani" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" placeholder="ejemplo@email.com" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="cantidad">Cantidad de entradas</label>
+                <input type="number" id="cantidad" min="1" max="2" value="1" required>
+              </div>
+          
+              <div class="total-box">
+                <span>Total a pagar:</span>
+                <strong id="total-monto">$4.330 ARS</strong>
+              </div>
+          
+              <button type="submit" id="btn-pagar" class="btn-primary">
+                Reservar y pagar
+              </button>
+            </form>
+          </section>
+        </div>
+      </section>
+
+    </div>      
 
   </main>
   <footer>
-  
+    
   </footer>
 </body>
 
