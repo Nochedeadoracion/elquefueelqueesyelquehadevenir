@@ -15,7 +15,7 @@ menuToggle.addEventListener("click", () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   // ⚠️ Pegá acá la URL de tu Apps Script Web App (termina en /exec)
-  const API_URL = 'https://script.google.com/macros/s/AKfycbxzy-wy1dxsw1nmVNszWPe-gJEUFg1bFVnkiX7UHoddbjfwfNUH3nKKr9dNyKQBrRR6/exec';
+  const API_URL = 'https://script.google.com/macros/s/AKfycbxG1EN2vbIaNwv9JKqv6DoPISsTmVBDzbqg_B8J3N5FR9SJzeIrfgQqbxNxTV-Ay8W4/exec';
   const PRECIO_UNITARIO = 4330;
 
   // El Link de pago simple de Mercado Pago solo admite un monto FIJO
