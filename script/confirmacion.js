@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const datosGuardados = sessionStorage.getItem('entrada_actual');
+  const datosGuardados = localStorage.getItem('entrada_actual');
   const sinDatos = document.getElementById('sin-datos');
   const conDatos = document.getElementById('con-datos');
 
@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnDescargar.addEventListener('click', () => {
-      // qrcode.js dibuja en un <canvas> (o <img> como fallback)
       const canvas = qrDiv.querySelector('canvas');
       const link = document.createElement('a');
       link.download = `entrada-${index + 1}-noche-de-adoracion.png`;
@@ -56,4 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.click();
     });
   });
+
+  // Ya cumplió su función en esta pestaña.
+  localStorage.removeItem('entrada_actual');
 });

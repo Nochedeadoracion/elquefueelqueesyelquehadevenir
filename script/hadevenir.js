@@ -121,7 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Guardamos los datos de esta compra para mostrarlos en confirmacion.html
       // recién cuando la persona vuelva de Mercado Pago (no antes).
-      sessionStorage.setItem('entrada_actual', JSON.stringify({
+      // Usamos localStorage (no sessionStorage): al volver de pagar, el
+      // navegador a veces lo trata como una pestaña/ventana distinta, y
+      // sessionStorage no sobrevive eso — localStorage sí.
+      localStorage.setItem('entrada_actual', JSON.stringify({
         nombre,
         email,
         cantidad,
