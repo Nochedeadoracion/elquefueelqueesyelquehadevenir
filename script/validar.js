@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // real (cualquiera con acceso al código fuente la puede ver). Solo
   // evita el uso accidental o casual. Tiene que ser IGUAL a STAFF_KEY
   // en Code.gs.
-  const STAFF_KEY = 'SI_VA_A_SER_LA_ULTIMA_HAGAMOLA_BIEN';
+  const STAFF_KEY = 'si-va-a-ser-la-utltima-hagamola-bien';
 
   const resultado = document.getElementById('resultado');
   const contadorEl = document.getElementById('contador');
