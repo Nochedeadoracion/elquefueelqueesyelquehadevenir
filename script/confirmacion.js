@@ -17,6 +17,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const contenedor = document.getElementById('lista-entradas');
 
+  // Arma una imagen final con: zona de silencio blanca pareja en los 4
+  // lados (necesaria para que los lectores de QR lo detecten bien) y el
+  // nombre del evento horneado arriba, dentro de la misma imagen.
+  function crearImagenEntrada(canvasQR, tituloTexto) {
+    const margen = 28;   // zona de silencio
+    const altoTexto = 34;
+
+    const canvasFinal = document.createElement('canvas');
+    canvasFinal.width = canvasQR.width + margen * 2;
+    canvasFinal.height = canvasQR.height + margen * 2 + altoTexto;
+
+    const ctx = canvasFinal.getContext('2d');
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, canvasFinal.width, canvasFinal.height);
+
+    ctx.fillStyle = '#0B1A32';
+    ctx.font = 'bold 18px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(tituloTexto, canvasFinal.width / 2, margen);
+
+    ctx.drawImage(canvasQR, margen, margen + altoTexto);
+
+    return canvasFinal;
+  }
+
   datos.entradas.forEach((entrada, index) => {
     const item = document.createElement('div');
     item.className = 'entrada-item';
@@ -24,38 +49,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const titulo = document.createElement('h3');
     titulo.textContent = `Entrada ${index + 1} de ${datos.entradas.length}`;
 
-    const qrDiv = document.createElement('div');
-    qrDiv.className = 'qr-box';
+    const qrBox = document.createElement('div');
+    qrBox.className = 'qr-box';
 
     const btnDescargar = document.createElement('button');
     btnDescargar.className = 'btn-primary btn-descargar';
     btnDescargar.textContent = 'Descargar QR';
 
     item.appendChild(titulo);
-    item.appendChild(qrDiv);
+    item.appendChild(qrBox);
     item.appendChild(btnDescargar);
     contenedor.appendChild(item);
 
-    // Genera el QR con el código firmado que devolvió el backend
-    new QRCode(qrDiv, {
+    // Genera el QR crudo en un contenedor temporal (no visible en la página)
+    const contenedorTemporal = document.createElement('div');
+    contenedorTemporal.style.display = 'none';
+    document.body.appendChild(contenedorTemporal);
+
+    new QRCode(contenedorTemporal, {
       text: entrada.codigo,
-      width: 220,
-      height: 220,
+      width: 260,
+      height: 260,
       colorDark: '#0B1A32',
-      colorLight: '#FFFFFF'
+      colorLight: '#FFFFFF',
+      correctLevel: QRCode.CorrectLevel.H // corrección de errores alta
     });
 
+    const canvasCrudo = contenedorTemporal.querySelector('canvas');
+    const canvasFinal = crearImagenEntrada(canvasCrudo, 'Noche de Adoración');
+
+    canvasFinal.className = 'qr-imagen';
+    qrBox.appendChild(canvasFinal);
+    document.body.removeChild(contenedorTemporal);
+
     btnDescargar.addEventListener('click', () => {
-      const canvas = qrDiv.querySelector('canvas');
       const link = document.createElement('a');
       link.download = `entrada-${index + 1}-noche-de-adoracion.png`;
-      link.href = canvas
-        ? canvas.toDataURL('image/png')
-        : qrDiv.querySelector('img').src;
+      link.href = canvasFinal.toDataURL('image/png');
       link.click();
     });
   });
 
-  // Ya cumplió su función en esta pestaña.
   localStorage.removeItem('entrada_actual');
 });
