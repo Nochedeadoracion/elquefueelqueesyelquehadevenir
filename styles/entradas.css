@@ -23,6 +23,22 @@
   color: var(--accent-light);
 }
 
+.pantalla-espera {
+  text-align: center;
+}
+
+.pantalla-espera p {
+  max-width: none;
+  font-size: 15px;
+  color: #1a1a1a;
+  margin: 0 0 14px;
+}
+
+.pantalla-espera-ayuda {
+  color: #64748b;
+  font-size: 13px;
+}
+
 /* ============ Página de confirmación ============ */
 
 .confirmacion-page {

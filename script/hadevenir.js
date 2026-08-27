@@ -37,6 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const formEntradas = document.getElementById('form-entradas');
   const btnPagar = document.getElementById('btn-pagar');
   const mensajeEstado = document.getElementById('mensaje-estado');
+  const pantallaEspera = document.getElementById('pantalla-espera');
+  const btnReintentar = document.getElementById('btn-reintentar');
+
+  // Se pone en true justo antes de mandar a pagar. Si la persona vuelve
+  // a esta pestaña (sin haber llegado a confirmacion.html), lo sabemos.
+  let esperandoVueltaDePago = false;
 
   function actualizarTotal() {
     const cantidad = parseInt(inputCantidad.value) || 1;
@@ -136,11 +142,34 @@ document.addEventListener('DOMContentLoaded', () => {
       // Redirige en la MISMA pestaña (no target="_blank"): así, cuando
       // Mercado Pago redirija de vuelta a confirmacion.html, la
       // sessionStorage sigue disponible en esa pestaña.
+      esperandoVueltaDePago = true;
       window.location.href = linkPago;
     } catch (err) {
       mostrarMensaje('Error de conexión. Probá de nuevo en un momento.', 'error');
       btnPagar.disabled = false;
       btnPagar.textContent = textoOriginal;
     }
+  });
+
+  // Si la persona cierra la app de Mercado Pago y vuelve a esta pestaña
+  // "a lo bruto" (sin pasar por el botón de vuelta de MP), nunca llega a
+  // confirmacion.html. Detectamos que volvió a mirar esta pestaña y le
+  // mostramos qué va a pasar, en vez de dejar el botón trabado en
+  // "Procesando...".
+  document.addEventListener('visibilitychange', () => {
+    if (esperandoVueltaDePago && document.visibilityState === 'visible') {
+      esperandoVueltaDePago = false;
+      formEntradas.hidden = true;
+      pantallaEspera.hidden = false;
+    }
+  });
+
+  btnReintentar.addEventListener('click', () => {
+    pantallaEspera.hidden = true;
+    formEntradas.hidden = false;
+    formEntradas.reset();
+    actualizarTotal();
+    btnPagar.disabled = false;
+    btnPagar.textContent = 'Reservar e ir a pagar';
   });
 });
