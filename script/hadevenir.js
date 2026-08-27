@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const total = cantidad * PRECIO_UNITARIO;
     totalMonto.textContent = `$${total.toLocaleString('es-AR')} ARS`;
   }
-  inputCantidad.addEventListener('input', actualizarTotal);
+  inputCantidad.addEventListener('change', actualizarTotal);
 
   function mostrarMensaje(texto, tipo = 'info') {
     if (!mensajeEstado) return;

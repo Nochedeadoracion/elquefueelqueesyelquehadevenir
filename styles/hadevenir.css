@@ -312,6 +312,10 @@ p {
   color: var(--font-color);
 }
 
+.aviso {
+  color: #000000;
+  font-size: .6rem;
+}
 
 /* Intento numero dos con IA */
 
