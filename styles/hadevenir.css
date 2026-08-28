@@ -313,8 +313,8 @@ p {
 }
 
 .aviso {
-  color: #000000;
-  font-size: .6rem;
+  color: #64748b;
+  font-size: 15px;
 }
 
 /* Intento numero dos con IA */
@@ -543,4 +543,27 @@ p {
   margin-top: 12px;
   font-size: 0.9rem;
   color: #e6b633;
+}
+
+/* Texto base del párrafo */
+.aviso {
+  color: #64748b;
+  /* Texto claro para fondo oscuro */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Formato exclusivo para el texto de 'Volver a...' estilo Mercado Pago */
+.mp-texto {
+  color: #009ee3;
+  /* Azul oficial de Mercado Pago */
+  font-weight: 700;
+  /* Negrita para que destaque */
+  background-color: #ffffff;
+  /* Fondo blanco que imita la pantalla de MP */
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  /* Mantiene la forma de botoncito */
+  margin: 0 2px;
 }
