@@ -436,3 +436,111 @@ p {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 0 12px 12px 0;
 }
+
+/* AYUDA */
+
+/* Sección de Ayuda / FAQ */
+.features-ayuda {
+  background-color: #0B1A32;
+  color: #ffffff;
+  padding: 60px 20px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.ayuda-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ayuda-titulo {
+  text-align: center;
+  color: #e6b633;
+  /* Dorado */
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+/* Tarjetas desplegables */
+.ayuda-item {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(230, 182, 51, 0.2);
+  /* Borde suave dorado */
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.ayuda-item[open] {
+  border-color: #e6b633;
+  /* Resalta en dorado al abrir */
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Título/Pregunta del desplegable */
+.ayuda-pregunta {
+  padding: 18px 20px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  color: #F5D98A;
+  list-style: none;
+  /* Oculta la flecha por defecto en algunos navegadores */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+/* Flecha indicadora personalizada */
+.ayuda-pregunta::after {
+  content: "❯";
+  font-size: 0.85rem;
+  color: #e6b633;
+  transition: transform 0.3s ease;
+}
+
+.ayuda-item[open] .ayuda-pregunta::after {
+  transform: rotate(90deg);
+  /* Gira la flecha al abrir */
+}
+
+/* Contenido de la respuesta */
+.ayuda-respuesta {
+  padding: 0 20px 20px 20px;
+  color: #d1d5db;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 5px;
+  padding-top: 15px;
+}
+
+.ayuda-respuesta a {
+  color: #e6b633;
+  text-decoration: underline;
+}
+
+.ayuda-respuesta a:hover {
+  color: #F5D98A;
+}
+
+/* Imagen de ejemplo de Mercado Pago */
+.ejemplo-pago {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.ejemplo-pago img {
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid rgba(230, 182, 51, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.nota-pago {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #e6b633;
+}

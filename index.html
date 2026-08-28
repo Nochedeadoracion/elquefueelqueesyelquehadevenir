@@ -27,7 +27,7 @@
         <li><a href="#entradas">Entradas</a></li>
         <li><a href="#info">Informacion</a></li>
         <li><a href="#acercade">Acerca de</a></li>
-        <li></li>
+        <li><a href="#ayuda">Ayuda</a></li>
         <li></li>
       </ul>
     </nav>
@@ -159,7 +159,8 @@
               </button>
               <p class="aviso">Luego de realizar tu pago apreta "volver a..." desde la ventana de Mercado Pago para ver tu entrada.</p>
             </form>
-            
+
+            <!-- PANTALLA DE ESPERA, REDIRECCION (NO FUNCIONA) -->
             <div id="pantalla-espera" class="pantalla-espera" hidden>
               <p>
                 Registramos tu reserva. Cuando confirmemos que tu pago llegó
@@ -175,12 +176,55 @@
               </button>
             </div>
 
+            
           </section>
         </div>
       </section>
-
+      
     </div>      
-
+    
+    <!-- AYUDA -->
+    <section class="features-ayuda" id="ayuda">
+      <div class="ayuda-container">
+        <h2 class="ayuda-titulo">Preguntas Frecuentes / Ayuda</h2>
+    
+        <!-- Pregunta 1 -->
+        <details class="ayuda-item">
+          <summary class="ayuda-pregunta">¿Donde puedo ver mi entrada?</summary>
+          <div class="ayuda-respuesta">
+            <p>Te enviaremos una copia de tu o tus entradas al mail declarado. Asegúrate de que esté escrito correctamente.
+            </p>
+          </div>
+        </details>
+    
+        <!-- Pregunta 2 -->
+        <details class="ayuda-item">
+          <summary class="ayuda-pregunta">¿Cómo hacer mi pago?</summary>
+          <div class="ayuda-respuesta">
+            <p>Luego de completar tus datos, se te redireccionará a Mercado Pago. Luego de completar el pago, haz click en
+              <strong>"Volver al sitio"</strong> (ver imagen de ejemplo), esto te redireccionará a tus entradas para
+              descargar.</p>
+    
+            <!-- Reemplazá 'ruta/a/tu-imagen.jpg' por la imagen de ejemplo -->
+            <div class="ejemplo-pago">
+              <img src="ruta/a/tu-imagen.jpg" alt="Ejemplo de botón Volver al sitio en Mercado Pago" />
+            </div>
+    
+            <p class="nota-pago">✨ Una vez verificado tu pago, la entrada tendrá validez para su uso y se te enviará un mail
+              de confirmación.</p>
+          </div>
+        </details>
+    
+        <!-- Pregunta 3 -->
+        <details class="ayuda-item">
+          <summary class="ayuda-pregunta">¿Hay algún contacto de soporte?</summary>
+          <div class="ayuda-respuesta">
+            <p>Si tuviste algún inconveniente, no dudes en escribir a <a
+                href="mailto:florm.espindola99@gmail.com">florm.espindola99@gmail.com</a>.</p>
+          </div>
+        </details>
+      </div>
+    </section>
   </main>
   <footer>
     
