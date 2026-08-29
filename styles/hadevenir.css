@@ -310,11 +310,6 @@ p {
   color: var(--font-color);
 }
 
-.aviso {
-  color: #64748b;
-  font-size: 15px;
-}
-
 /* Intento numero dos con IA */
 
 /* ============ CONTENEDOR CON FONDO ============ */
@@ -547,8 +542,9 @@ p {
 .aviso {
   color: #64748b;
   /* Texto claro para fondo oscuro */
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  margin-bottom: .5rem;
 }
 
 /* Formato exclusivo para el texto de 'Volver a...' estilo Mercado Pago */

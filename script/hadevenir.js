@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     3: 'https://mpago.la/26EP8yK',
     4: 'https://mpago.la/PEGAR_LINK_4_ENTRADAS',
     5: 'https://mpago.la/PEGAR_LINK_5_ENTRADAS',
-    6: 'https://mpago.la/PEGAR_LINK_6_ENTRADAS'
+    6: 'https://mpago.la/2tsidhN'
   };
 
   const inputCantidad = document.getElementById('cantidad');
