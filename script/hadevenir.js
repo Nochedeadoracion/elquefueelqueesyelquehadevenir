@@ -17,19 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // ⚠️ Pegá acá la URL de tu Apps Script Web App (termina en /exec)
   const API_URL = 'https://script.google.com/macros/s/AKfycbxG1EN2vbIaNwv9JKqv6DoPISsTmVBDzbqg_B8J3N5FR9SJzeIrfgQqbxNxTV-Ay8W4/exec';
   const PRECIO_UNITARIO = 5000;
-  const PORCENTAJE_MERCADO_PAGO = 0.0629; // se lo trasladamos al comprador
+  const PORCENTAJE_MERCADO_PAGO = 0.0660; // se lo trasladamos al comprador
 
   // El Link de pago simple de Mercado Pago solo admite un monto FIJO
   // (no calcula por cantidad). Por eso creamos un link distinto por
   // cada cantidad de entradas, con el precio ya multiplicado Y con el
   // cargo de Mercado Pago (6,29%) ya incluido. Los montos exactos que
   // tiene que tener cada link (calculados igual que acá abajo):
-  //   1 entrada  -> $5.315
-  //   2 entradas -> $10.629
-  //   3 entradas -> $15.944
-  //   4 entradas -> $21.258
-  //   5 entradas -> $26.573
-  //   6 entradas -> $31.887
+  //   1 entrada  -> $5.434,19
+  //   2 entradas -> $10.868,38
+  //   3 entradas -> $16.302,58
+  //   4 entradas -> $21.736,77
+  //   5 entradas -> $27.170,96
+  //   6 entradas -> $32.605,15
   // Los 6 links tienen que tener configurado el mismo "sitio de
   // redireccionamiento": la URL de confirmacion.html de este sitio.
   const LINKS_MERCADO_PAGO = {
