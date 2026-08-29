@@ -16,11 +16,20 @@ menuToggle.addEventListener("click", () => {
 document.addEventListener('DOMContentLoaded', () => {
   // ⚠️ Pegá acá la URL de tu Apps Script Web App (termina en /exec)
   const API_URL = 'https://script.google.com/macros/s/AKfycbxG1EN2vbIaNwv9JKqv6DoPISsTmVBDzbqg_B8J3N5FR9SJzeIrfgQqbxNxTV-Ay8W4/exec';
-  const PRECIO_UNITARIO = 4330;
+  const PRECIO_UNITARIO = 5000;
+  const PORCENTAJE_MERCADO_PAGO = 0.0629; // se lo trasladamos al comprador
 
   // El Link de pago simple de Mercado Pago solo admite un monto FIJO
   // (no calcula por cantidad). Por eso creamos un link distinto por
-  // cada cantidad de entradas, con el precio ya multiplicado.
+  // cada cantidad de entradas, con el precio ya multiplicado Y con el
+  // cargo de Mercado Pago (6,29%) ya incluido. Los montos exactos que
+  // tiene que tener cada link (calculados igual que acá abajo):
+  //   1 entrada  -> $5.315
+  //   2 entradas -> $10.629
+  //   3 entradas -> $15.944
+  //   4 entradas -> $21.258
+  //   5 entradas -> $26.573
+  //   6 entradas -> $31.887
   // Los 6 links tienen que tener configurado el mismo "sitio de
   // redireccionamiento": la URL de confirmacion.html de este sitio.
   const LINKS_MERCADO_PAGO = {
@@ -46,10 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function actualizarTotal() {
     const cantidad = parseInt(inputCantidad.value) || 1;
-    const total = cantidad * PRECIO_UNITARIO;
+    const subtotal = cantidad * PRECIO_UNITARIO;
+    const cargoMP = Math.round(subtotal * PORCENTAJE_MERCADO_PAGO);
+    const total = subtotal + cargoMP;
+
+    document.getElementById('desglose-cantidad').textContent = cantidad;
+    document.getElementById('desglose-subtotal').textContent = `$${subtotal.toLocaleString('es-AR')} ARS`;
+    document.getElementById('desglose-cargo').textContent = `$${cargoMP.toLocaleString('es-AR')} ARS`;
     totalMonto.textContent = `$${total.toLocaleString('es-AR')} ARS`;
   }
   inputCantidad.addEventListener('change', actualizarTotal);
+  actualizarTotal();
 
   function mostrarMensaje(texto, tipo = 'info') {
     if (!mensajeEstado) return;

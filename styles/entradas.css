@@ -39,6 +39,28 @@
   font-size: 13px;
 }
 
+/* ============ Desglose de precio ============ */
+
+.desglose-precio {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #303030;
+}
+
+.desglose-precio summary {
+  cursor: pointer;
+  color: #57427C;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.desglose-linea {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  color: #454545;
+}
+
 /* ============ Página de confirmación ============ */
 
 .confirmacion-page {

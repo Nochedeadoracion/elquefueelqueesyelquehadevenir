@@ -53,7 +53,7 @@
               <img src="images/date-calendar-svgrepo-com.svg" alt="cuando">
             </div>
             <h3>07 de Diciembre</h3>
-            <p>Para 800 personas</p>
+            <p>Para 300 personas</p>
           </article>
     
           <article class="feature-item">
@@ -122,7 +122,6 @@
           <h2 class="features-title">Consegui tus entradas aqui</h2>
           <section class="ticket-card">
             <!-- <h2>Adquirir Entradas</h2> -->
-            <p class="ticket-price">Precio unitario sin impuestos: <strong>$4.000 ARS</strong></p>
           
             <p id="mensaje-estado" class="mensaje-estado" hidden></p>
   
@@ -149,16 +148,37 @@
                 </select>
               </div>
           
+              <!-- DESGLOSE DE PRECIOS -->
+              <details class="desglose-precio">
+                <summary>Ver desglose del precio</summary>
+                <div class="desglose-linea">
+                  <span>Valor unitario (sin cargos)</span>
+                  <span>$5.000 ARS</span>
+                </div>
+                <div class="desglose-linea">
+                  <span>Cantidad</span>
+                  <span id="desglose-cantidad">1</span>
+                </div>
+                <div class="desglose-linea">
+                  <span>Subtotal</span>
+                  <span id="desglose-subtotal">$5.000 ARS</span>
+                </div>
+                <div class="desglose-linea">
+                  <span>Cargo Mercado Pago (6,29%)</span>
+                  <span id="desglose-cargo">$315 ARS</span>
+                </div>
+              </details>
+
               <div class="total-box">
                 <span>Total a pagar:</span>
-                <strong id="total-monto">$4.330 ARS</strong>
+                <strong id="total-monto">$5.310 ARS</strong>
               </div>
           
               <button type="submit" id="btn-pagar" class="btn-primary">
                 Reservar y pagar
               </button>
               <p class="aviso">
-                Luego de realizar tu pago apretá <span class="mp-texto">← Volver a [Nombre]</span> desde la ventana de Mercado Pago
+                Luego de realizar tu pago presioná <span class="mp-texto">← Volver a [Nombre]</span> desde la ventana de Mercado Pago
                 para ver tu entrada.
               </p>
             </form>
@@ -210,7 +230,7 @@
     
             <!-- Reemplazá 'ruta/a/tu-imagen.jpg' por la imagen de ejemplo -->
             <div class="ejemplo-pago">
-              <img src="ruta/a/tu-imagen.jpg" alt="Ejemplo de botón Volver al sitio en Mercado Pago" />
+              <img src="images/ejemplo-volver-recorte.webp" alt="Ejemplo de botón Volver al sitio en Mercado Pago" />
             </div>
     
             <p class="nota-pago">✨ Una vez verificado tu pago, la entrada tendrá validez para su uso y se te enviará un mail
