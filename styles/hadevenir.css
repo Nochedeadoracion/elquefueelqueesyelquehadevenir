@@ -53,6 +53,10 @@
   z-index: 1;
 }
 
+body {
+  /* Si pongo el Monserrat aca, cambio los titulos */
+}
+
 h1{
   margin: 0;
   max-width: 1100px;
@@ -70,6 +74,7 @@ p {
   line-height: 1.25;
   letter-spacing: -.018em;
   color: rgba(255, 255, 255, .95);
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* El nav dentro del hero flotando a la derecha ≡ */
@@ -293,9 +298,9 @@ p {
 
 .ver-ubicacion {
   display: inline-block;
-  padding: 10px 30px;
+  padding: 5px 0px;
   margin: 10px 0; /* Sugerencia de Dani */
-  border: 5px solid var(--accent2-color);
+  /* border: 5px solid var(--accent2-color); */
   border-radius: 30px;
   background-color: #f9f5ef;
   color: var(--accent2-color);
@@ -560,4 +565,110 @@ p {
   display: inline-block;
   /* Mantiene la forma de botoncito */
   margin: 0 2px;
+}
+
+/* Foooooooooteeeeeeer */
+/* Footer Principal */
+.site-footer {
+  background-color: #000000;
+  /* Fondo totalmente negro */
+  color: #ffffff;
+  padding: 50px 20px 20px 20px;
+  font-family: 'Work Sans', sans-serif;
+  border-top: 1px solid rgba(230, 182, 51, 0.3);
+  /* Línea dorada sutil arriba */
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-col {
+  flex: 1 1 140px;
+  /* Se adapta automáticamente en celulares y pantallas grandes */
+}
+
+/* Títulos */
+.footer-brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.footer-col h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+/* Descripción */
+.footer-desc {
+  color: #cccccc;
+  /* Blanco suave para mejor lectura */
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.footer-desc strong {
+  color: #ffffff;
+}
+
+/* Redes Sociales */
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  /* Efeito sutil de elevación */
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  /* Pasa el SVG a blanco puro si es oscuro */
+}
+
+/* Barra Inferior (Copyright) */
+.footer-bottom {
+  max-width: 1000px;
+  margin: 40px auto 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* Línea divisoria discreta */
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #888888;
+  font-size: 0.8rem;
+}
+
+/* Adaptación Mobile */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .social-links a {
+    justify-content: center;
+  }
 }

@@ -116,6 +116,20 @@
   .features-note {
     margin-top: 74px;
   }
+
+  .ver-ubicacion {
+    display: inline-block;
+    padding: 7px 10px;
+    margin: 10px 0; /* Sugerencia de Dani */
+    border: 5px solid var(--accent2-color);
+    border-radius: 30px;
+    background-color: #f9f5ef;
+    color: var(--accent2-color);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
 }
 
 /* ============ GALLERY (desde 561px) ============ */
