@@ -225,3 +225,38 @@
     flex-direction: row;
   }
 }
+
+/* Estilos para pantallas grandes (-large.css) */
+@media (min-width: 768px) {
+  .countdown-container {
+    padding: 15px 30px;
+    max-width: 450px;
+    margin-bottom: 30px;
+  }
+
+  .countdown-label {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+  }
+
+  .countdown-box {
+    gap: 12px;
+  }
+
+  .time-card {
+    min-width: 55px;
+  }
+
+  .time-card span {
+    font-size: 2rem;
+  }
+
+  .time-card small {
+    font-size: 0.75rem;
+  }
+
+  .colon {
+    font-size: 1.6rem;
+    margin-top: -14px;
+  }
+}

@@ -67,7 +67,7 @@ h1{
   text-transform: uppercase;
 }
 
-p {
+.hero-subtitle {
   max-width: 850px;
   margin: 28px 0 0;
   font-size: clamp(18px, 2.1vw, 30px);
@@ -705,4 +705,67 @@ p {
   .social-links a {
     justify-content: center;
   }
+}
+
+/* --- COUNTDOWN (MOBILE FIRST) --- */
+.countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 190px auto;
+  padding: 10px 15px;
+  background-color: rgba(11, 26, 50, 0.7);
+  /* Transparente nocturno */
+  border: 1px solid rgba(230, 182, 51, 0.3);
+  /* Borde dorado sutil */
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  /* Efecto vidrio esmerilado */
+  max-width: 90%;
+}
+
+.countdown-label {
+  color: #e6b633;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.countdown-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+}
+
+.time-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 42px;
+}
+
+.time-card span {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.time-card small {
+  font-size: 0.65rem;
+  color: #F5D98A;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.colon {
+  color: #e6b633;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: -12px;
 }

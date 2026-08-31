@@ -189,3 +189,36 @@ document.addEventListener('DOMContentLoaded', () => {
     btnPagar.textContent = 'Reservar e ir a pagar';
   });
 });
+
+// Configura la fecha y hora exacta del evento (Año, Mes-1, Día, Hora, Minutos)
+// Nota: Los meses en JavaScript van de 0 (Enero) a 11 (Diciembre). Por ejemplo, Octubre es 9.
+const FECHA_EVENTO = new Date(2026, 11, 7, 19, 30, 0).getTime();
+// Parámetros: (Año, Mes - 1, Día, Hora en formato 24hs, Minutos, Segundos)
+// Diciembre es el mes 11 (Enero=0, Febrero=1 ... Diciembre=11)
+// 7 PM son las 19:00 hs
+function actualizarCountDown() {
+  const ahora = new Date().getTime();
+  const diferencia = FECHA_EVENTO - ahora;
+
+  if (diferencia <= 0) {
+    document.querySelector('.countdown-container').innerHTML =
+      '<p class="countdown-label" style="font-size:1rem; margin:0;">¡EL EVENTO HA COMENZADO!</p>';
+    return;
+  }
+
+  // Cálculos de tiempo
+  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+  const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+  // Formatear dos dígitos (ej: 05 en lugar de 5)
+  document.getElementById('days').textContent = dias < 10 ? '0' + dias : dias;
+  document.getElementById('hours').textContent = horas < 10 ? '0' + horas : horas;
+  document.getElementById('minutes').textContent = minutos < 10 ? '0' + minutos : minutos;
+  document.getElementById('seconds').textContent = segundos < 10 ? '0' + segundos : segundos;
+}
+
+// Ejecutar al cargar y actualizar cada 1 segundo
+actualizarCountDown();
+setInterval(actualizarCountDown, 1000);
