@@ -660,6 +660,40 @@ p {
   font-size: 0.8rem;
 }
 
+/* Lista de enlaces/redes alineados en vertical */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  /* Espacio entre el enlace de Instagram y Edificando Casa */
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  opacity: 0.85;
+  color: #F5D98A;
+  /* Cambia a dorado sutil al pasar el mouse */
+  transform: translateX(3px);
+  /* Pequeño desplazamiento a la derecha */
+}
+
+/* Íconos con tamaño uniforme */
+.footer-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
 /* Adaptación Mobile */
 @media (max-width: 600px) {
   .footer-container {
