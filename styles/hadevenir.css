@@ -34,10 +34,36 @@
 .hero-content {
   width: min(92%, 1320px);
   margin: 0 auto;
-  padding-bottom: clamp(50px, 8vw, 105px);
+  /* Ocupa exactamente toda la pantalla del cel/pantalla */
+  height: 100svh;
+
+  /* Flexbox vertical */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Empuja el contador arriba y el texto abajo */
+  align-items: flex-start;
+  /* Mantiene todo alineado a la izquierda */
+
+  /* Espaciado interno para que no toque los bordes ni el botón del menú */
+  padding-top: clamp(70px, 10vh, 100px);
+  /* Deja espacio para el menú hamburguesa */
+  padding-bottom: clamp(30px, 5vh, 60px);
+  /* Margen respecto al borde inferior */
+
   position: relative;
   z-index: 2;
   color: var(--font-color);
+  box-sizing: border-box;
+}
+
+.hero-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* Controla la separación justa entre el h1 y el subtítulo */
+  width: 100%;
+  text-align: left;
 }
 
 .hero-bg{
@@ -54,7 +80,7 @@
 }
 
 body {
-  /* Si pongo el Monserrat aca, cambio los titulos */
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1{
@@ -65,6 +91,7 @@ h1{
   letter-spacing: -.055em;
   font-weight: 700;
   text-transform: uppercase;
+  font-family: 'Poppins',sans-serif;
 }
 
 .hero-subtitle {
@@ -74,7 +101,7 @@ h1{
   line-height: 1.25;
   letter-spacing: -.018em;
   color: rgba(255, 255, 255, .95);
-  font-family: 'Montserrat', sans-serif;
+  
 }
 
 /* El nav dentro del hero flotando a la derecha ≡ */
@@ -206,6 +233,12 @@ h1{
   letter-spacing: -.012em;
 }
 
+.recaudacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* SISTEMA DE ENTRADAS */
 
 .checkout-container {
@@ -315,7 +348,6 @@ h1{
   color: var(--font-color);
 }
 
-/* Intento numero dos con IA */
 
 /* ============ CONTENEDOR CON FONDO ============ */
 
@@ -713,15 +745,16 @@ h1{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 190px auto;
+
+  /* Centrado horizontal solo para el contador */
+  align-self: center;
+  margin: 0 auto;
+
   padding: 10px 15px;
   background-color: rgba(11, 26, 50, 0.7);
-  /* Transparente nocturno */
   border: 1px solid rgba(230, 182, 51, 0.3);
-  /* Borde dorado sutil */
   border-radius: 12px;
   backdrop-filter: blur(5px);
-  /* Efecto vidrio esmerilado */
   max-width: 90%;
 }
 

@@ -17,28 +17,39 @@ document.addEventListener('DOMContentLoaded', () => {
   // ⚠️ Pegá acá la URL de tu Apps Script Web App (termina en /exec)
   const API_URL = 'https://script.google.com/macros/s/AKfycbxG1EN2vbIaNwv9JKqv6DoPISsTmVBDzbqg_B8J3N5FR9SJzeIrfgQqbxNxTV-Ay8W4/exec';
   const PRECIO_UNITARIO = 5000;
-  const PORCENTAJE_MERCADO_PAGO = 0.0660; // se lo trasladamos al comprador
+  const PORCENTAJE_MERCADO_PAGO = 0.066033; //  6,6033% (Florencia lo recuerda como "6,60%")
+  const IVA = 0.21; // 21%, se aplica sobre la comisión de Mercado Pago
+
+  // Fórmula: si "total" es lo que paga el comprador, Mercado Pago se
+  // queda con (total × comisión) + IVA sobre esa comisión, y el resto
+  // es el neto que recibe tu cuñada:
+  //   total − (total × comisión) − (total × comisión × IVA) = neto
+  //   total × (1 − comisión × (1 + IVA)) = neto
+  //   total = neto ÷ (1 − comisión × (1 + IVA))
+  const DIVISOR_COMISION = 1 - PORCENTAJE_MERCADO_PAGO * (1 + IVA);
+
+  function calcularTotal(cantidad) {
+    const subtotalNeto = cantidad * PRECIO_UNITARIO;
+    const total = Math.round((subtotalNeto / DIVISOR_COMISION) * 100) / 100;
+    const cargoMP = Math.round((total - subtotalNeto) * 100) / 100;
+    return { subtotalNeto, cargoMP, total };
+  }
 
   // El Link de pago simple de Mercado Pago solo admite un monto FIJO
   // (no calcula por cantidad). Por eso creamos un link distinto por
-  // cada cantidad de entradas, con el precio ya multiplicado Y con el
-  // cargo de Mercado Pago (6,29%) ya incluido. Los montos exactos que
-  // tiene que tener cada link (calculados igual que acá abajo):
-  //   1 entrada  -> $5.434,19
-  //   2 entradas -> $10.868,38
-  //   3 entradas -> $16.302,58
-  //   4 entradas -> $21.736,77
-  //   5 entradas -> $27.170,96
-  //   6 entradas -> $32.605,15
+  // cada cantidad de entradas. Estos son los montos REALES que generó
+  // Florencia desde su cuenta de Mercado Pago (pueden diferir por 1
+  // centavo del cálculo de la fórmula de arriba, por redondeo interno
+  // de MP — no importa, la diferencia es insignificante).
   // Los 6 links tienen que tener configurado el mismo "sitio de
   // redireccionamiento": la URL de confirmacion.html de este sitio.
   const LINKS_MERCADO_PAGO = {
-    1: 'https://mpago.la/1yagK4K',
-    2: 'https://mpago.la/2HZZS7W',
-    3: 'https://mpago.la/26EP8yK',
-    4: 'https://mpago.la/PEGAR_LINK_4_ENTRADAS',
-    5: 'https://mpago.la/PEGAR_LINK_5_ENTRADAS',
-    6: 'https://mpago.la/2tsidhN'
+    1: 'https://mpago.la/27vqjkc',    // $5.434,19
+    2: 'https://mpago.la/1nAfGfS',   // $10.868,38
+    3: 'https://mpago.la/2WZu9bx',   // $16.302,58
+    4: 'https://mpago.la/1oUV148',   // $21.736,77
+    5: 'https://mpago.la/2Q8MCfd',   // $27.170,96
+    6: 'https://mpago.la/1wrYDrY'    // $32.605,15
   };
 
   const inputCantidad = document.getElementById('cantidad');
@@ -55,14 +66,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function actualizarTotal() {
     const cantidad = parseInt(inputCantidad.value) || 1;
-    const subtotal = cantidad * PRECIO_UNITARIO;
-    const cargoMP = Math.round(subtotal * PORCENTAJE_MERCADO_PAGO);
-    const total = subtotal + cargoMP;
+    const { subtotalNeto, total } = calcularTotal(cantidad);
+
+    const comisionMP = Math.round(total * PORCENTAJE_MERCADO_PAGO * 100) / 100;
+    const ivaComision = Math.round(comisionMP * IVA * 100) / 100;
+
+    const formatoARS = (monto) => monto.toLocaleString('es-AR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
 
     document.getElementById('desglose-cantidad').textContent = cantidad;
-    document.getElementById('desglose-subtotal').textContent = `$${subtotal.toLocaleString('es-AR')} ARS`;
-    document.getElementById('desglose-cargo').textContent = `$${cargoMP.toLocaleString('es-AR')} ARS`;
-    totalMonto.textContent = `$${total.toLocaleString('es-AR')} ARS`;
+    document.getElementById('desglose-subtotal').textContent = `$${formatoARS(subtotalNeto)} ARS`;
+    document.getElementById('desglose-comision').textContent = `$${formatoARS(comisionMP)} ARS`;
+    document.getElementById('desglose-iva').textContent = `$${formatoARS(ivaComision)} ARS`;
+    totalMonto.textContent = `$${formatoARS(total)} ARS`;
   }
   inputCantidad.addEventListener('change', actualizarTotal);
   actualizarTotal();
